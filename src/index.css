@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  max-width: 100dvw;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
