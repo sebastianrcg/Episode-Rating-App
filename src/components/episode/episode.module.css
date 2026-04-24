@@ -8,12 +8,13 @@
     margin: 0 auto;
     min-height: 80px;
     max-height: 200px;
-    border: 1px solid rgb(59 130 246);
+    border: 1px solid #bfbfc2;
     padding: 10px;
     border-radius: 5px;
     /* border: blue; */
 }
 
 .comment:focus {
-    border-color: rgb(59 130 246) !important;
+    outline: none;
+    border-color: rgb(59 130 246) ;
 }

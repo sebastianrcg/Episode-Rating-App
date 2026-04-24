@@ -4,6 +4,7 @@ import classes from "./app.module.css";
 import EpisodeList from './components/episodeList/EpisodeList';
 import RatingProviver from './context/RatingProvider';
 import ControlBar from './components/controlbar/ControlBar';
+import CommentProvider from './context/CommentProvider';
 
 
 function App() {
@@ -39,10 +40,12 @@ function App() {
       <Heading size="5xl" padding="5" textAlign="center">Rick and Morty Episodes</Heading>
       <hr className={classes.break} />
 
-      <RatingProviver>
-        <ControlBar />
-        <EpisodeList episodes={episodes} />
-      </RatingProviver>
+      <CommentProvider>
+        <RatingProviver>
+          <ControlBar />
+          <EpisodeList episodes={episodes} />
+        </RatingProviver>
+      </CommentProvider>
     </>
   )
 }

@@ -9,12 +9,17 @@ import { useState } from "react";
 import { useRating } from "../../context/RatingProvider";
 import { Box, Collapsible, Stack } from "@chakra-ui/react"
 import { GoComment } from "react-icons/go";
+import { useComment } from "../../context/CommentProvider";
 
 const Episode = ({ id, name, airDate, episode }) => {
     const [openModal, setOpenModal] = useState(false);
     const [newRating, setNewRating] = useState(0);
     const [openComment, setOpenComment] = useState(false);
 
+    const [comment, setComment] = useState("");
+
+
+    const {addComment} = useComment();
 
 
 
@@ -37,6 +42,12 @@ const Episode = ({ id, name, airDate, episode }) => {
         addRating(episodeId, rating);
         setNewRating(0);
         setOpenModal(false);
+    }
+
+    const onSubmitComment = (episodeId, newComment) => {
+        addComment(episodeId, newComment);
+        setComment("");
+        setOpenComment(false)
     }
 
     return (
@@ -125,7 +136,8 @@ const Episode = ({ id, name, airDate, episode }) => {
                             This collapsible is controlled by external state. You can open and
                             close it using the buttons above or by clicking the trigger.
                         </Box> */}
-                        <textarea className={classes.comment}></textarea>
+                        <textarea value={comment} onChange={(e)=> setComment(e.target.value)} className={classes.comment}></textarea>
+                        <Button size={"sm"} marginTop={"10px"} marginLeft={"15px"} onClick={() => onSubmitComment(id, comment)} variant={"outline"} padding="2" colorPalette={"blue"}><GoComment /> Comment</Button>
                     </Collapsible.Content>
                 </Collapsible.Root>
             </Card.Root>
