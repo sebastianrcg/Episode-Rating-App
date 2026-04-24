@@ -1,3 +1,19 @@
 .cardContainer {
     margin: 5px auto;
 }
+
+.comment {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    min-height: 80px;
+    max-height: 200px;
+    border: 1px solid rgb(59 130 246);
+    padding: 10px;
+    border-radius: 5px;
+    /* border: blue; */
+}
+
+.comment:focus {
+    border-color: rgb(59 130 246) !important;
+}
