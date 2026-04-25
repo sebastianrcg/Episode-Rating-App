@@ -5,6 +5,7 @@ import EpisodeList from './components/episodeList/EpisodeList';
 import RatingProviver from './context/RatingProvider';
 import ControlBar from './components/controlbar/ControlBar';
 import CommentProvider from './context/CommentProvider';
+import EpisodeProvider from './context/EpisodeProvider';
 
 
 function App() {
@@ -42,8 +43,10 @@ function App() {
 
       <CommentProvider>
         <RatingProviver>
+          <EpisodeProvider>
           <ControlBar />
           <EpisodeList episodes={episodes} />
+          </EpisodeProvider>
         </RatingProviver>
       </CommentProvider>
     </>

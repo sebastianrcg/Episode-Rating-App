@@ -148,7 +148,7 @@ const Episode = ({ id, name, airDate, episode }) => {
                 <Collapsible.Root marginTop={"10px"} open={showCommentSection} onOpenChange={(e) => setShowCommentSection(e.open)}>
                     <Collapsible.Content>
                         <Box padding="4" borderWidth="1px" borderRadius={"5px"} width={"95%"} margin={"0 auto"} backgroundColor={"#e7e7e9"}>
-                            { (!comments[id]) ?  "No Comments" : comments[id].map(comment=> <Comment key={comment.commentID} episodeId={id} commentId={comment.commentID} comment={comment.comment} commentDate={comment.date}/>)                           }
+                            { (!comments[id] || comments[id].length === 0) ?  "No Comments" : comments[id].map(comment=> <Comment key={comment.commentID} episodeId={id} commentId={comment.commentID} comment={comment.comment} commentDate={comment.date}/>)                           }
                         </Box>
                         
                     </Collapsible.Content>
